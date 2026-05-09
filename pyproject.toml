@@ -1,0 +1,9 @@
+[project]
+name = "app"
+version = "0.1.0"
+description = "FastAPI scaffold for AI-generated assessment repos"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
