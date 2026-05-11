@@ -79,4 +79,10 @@ async def test_orchestrator_marks_suspicious_validation_results(monkeypatch):
 
     assert result["status"] == "success"
     assert result["validation_status"] == "suspicious"
-    assert result["metadata"]["validation"][0]["passed"] is False
+    assert "user_message" in result
+    assert "inconsistencias" in result["user_message"].lower()
+
+    validation = result["metadata"]["validation"]
+
+    assert validation["status"] == "suspicious"
+    assert validation["results"][0]["passed"] is False
